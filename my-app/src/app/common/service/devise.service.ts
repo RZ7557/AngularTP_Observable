@@ -2,11 +2,37 @@ import { Injectable } from '@angular/core';
 import { Devise } from '../data/devise';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class DeviseService {
+
+  public convertir(montant:number, 
+    codeMonnaieSource : string ,
+    codeMonnaieCible : string ) : Observable<number>{
+
+  let url = `./devise-api/public/convert`+
+  `?source=${codeMonnaieSource}&target=${codeMonnaieCible}&amount=${montant}`;   
+
+  return this.http.get<object>(url)
+    .pipe(
+      map( (responseObject) => { return responseObject["result"];})
+    );
+  /*
+  //code temporaire (sans http):
+  let deviseCible =null ;
+  let deviseSource = null;
+  for(let d of this.tabDevise){
+  if(d.code==codeMonnaieSource)
+  deviseSource= d;
+  if(d.code==codeMonnaieCible)
+  deviseCible= d;
+  }
+  res = montant * deviseCible.change / deviseSource.change;
+  return of(res);
+  */
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +49,7 @@ export class DeviseService {
     //le futur résultat (ou le message d'erreur) en différé
   }
 
-
+/*
   //pour version temporaire avant appel http vers api-rest:
   private tabDevise : Devise[] = [
     new Devise("USD","Dollar",1),
@@ -32,25 +58,10 @@ export class DeviseService {
     new Devise("JPY","Yen",120)
     // 0.9 euro pour 1 dollar
   ];
-
+*/
   
 
-  public convertir(montant:number, 
-                   codeMonnaieSource : string ,
-                   codeMonnaieCible : string ) : Observable<number>{
-      let res = 1;
-      //code temporaire (sans http):
-      let deviseCible =null ;
-      let deviseSource = null;
-      for(let d of this.tabDevise){
-        if(d.code==codeMonnaieSource)
-             deviseSource= d;
-        if(d.code==codeMonnaieCible)
-             deviseCible= d;
-      }
-      res = montant * deviseCible.change / deviseSource.change;
-      return of(res);
-  }
+  
 
   
 }
