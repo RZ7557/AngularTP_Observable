@@ -1,0 +1,14 @@
+<p>calcul-tva works!</p>
+
+
+<form>
+    ht:<input type="text" value="montantHT" [(ngModel)]="ht" (input)="calculTva()">  <br/>
+        taux<select [(ngModel)]="taux" (change)="calculer()" >
+            <option >5</option>
+            <option >10</option>
+            <option >15</option>
+        </select>  <br>
+
+    tva ={{tva}} <br>
+    ttc = {{ttc | number:'1.0-2'}}
+</form>
