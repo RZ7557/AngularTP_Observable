@@ -16,26 +16,21 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { TvaComponent } from './tva/tva.component'; 
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
 import { ConversionComponent } from './conversion/conversion.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    BasicComponent,
-    FooterComponent,
-    CalculComponent,
-    LoginComponent,
-    WelcomeComponent,
-    TvaComponent,
+    AppComponent,    HeaderComponent,
+    BasicComponent,    FooterComponent,
+    CalculComponent,    LoginComponent,
+    WelcomeComponent,    TvaComponent,
     ConversionComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    TabsModule.forRoot(),
-    BsUtilModule
+    BrowserModule,    AppRoutingModule,
+    FormsModule,    BrowserAnimationsModule,
+    TabsModule.forRoot(),    BsUtilModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
