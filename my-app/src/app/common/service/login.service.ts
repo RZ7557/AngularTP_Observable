@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { LoginResponse } from '../data/loginResponse';
 
 @Injectable({
@@ -18,7 +19,12 @@ export class LoginService {
                                  // en JSON     et envoyé au coté server (backend)
            let url = "./login-api/public/auth"; 
            //prefixe http://localhost:8282 selon proxy.conf.json
-           return this.http.post<LoginResponse>(url,requestObject,{headers: this._headers});
+           return this.http.post<LoginResponse>(url,requestObject,{headers: this._headers})
+                      .pipe(
+                         tap( 
+                           (loginResponse : LoginResponse) => 
+                              { sessionStorage.setItem('token',loginResponse.token); } 
+                          ));
          }
 
 }

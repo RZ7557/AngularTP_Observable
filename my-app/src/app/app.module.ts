@@ -16,8 +16,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { TvaComponent } from './tva/tva.component'; 
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
 import { ConversionComponent } from './conversion/conversion.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
+import { MyAuthInterceptor } from './common/monIntercepteur';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,11 @@ import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
     TabsModule.forRoot(),    BsUtilModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: MyAuthInterceptor,
+    multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
