@@ -17,6 +17,7 @@ import { TvaComponent } from './tva/tva.component';
 import { BsUtilModule } from 'src/bs-util/bs-util.module';
 import { ConversionComponent } from './conversion/conversion.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BasicComponent,    FooterComponent,
     CalculComponent,    LoginComponent,
     WelcomeComponent,    TvaComponent,
-    ConversionComponent
+    ConversionComponent,
+    AdminDeviseComponent
   ],
   imports: [
     BrowserModule,    AppRoutingModule,

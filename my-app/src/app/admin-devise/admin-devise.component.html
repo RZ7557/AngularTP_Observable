@@ -1,0 +1,6 @@
+<select [(ngModel)]="selectedDevise" size="10">
+    <option *ngFor="let d of devises" [ngValue]="d" >{{d.code}} {{d.name}} {{d.change}}</option>
+</select> <br/>
+<input type="button" value="supprimer devise"
+        (click)="onSupprimer()" /> <br/>
+{{message}}

@@ -8,6 +8,11 @@ import { map } from 'rxjs/operators';
 })
 export class DeviseService {
 
+  public deleteDevise(codeDevise : string) : Observable<any>{
+    let url = `./devise-api/private/role_admin/devise/${codeDevise}`;
+    return this.http.delete(url);
+  }
+
   public convertir(montant:number, 
     codeMonnaieSource : string ,
     codeMonnaieCible : string ) : Observable<number>{
