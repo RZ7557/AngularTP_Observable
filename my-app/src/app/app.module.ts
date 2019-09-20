@@ -19,6 +19,8 @@ import { ConversionComponent } from './conversion/conversion.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
 import { MyAuthInterceptor } from './common/monIntercepteur';
+import { ProductsComponent } from './products/products.component';
+import { ListProdComponent } from './products/list-prod/list-prod.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MyAuthInterceptor } from './common/monIntercepteur';
     CalculComponent,    LoginComponent,
     WelcomeComponent,    TvaComponent,
     ConversionComponent,
-    AdminDeviseComponent
+    AdminDeviseComponent,
+    ProductsComponent,
+    ListProdComponent
   ],
   imports: [
     BrowserModule,    AppRoutingModule,

@@ -15,10 +15,13 @@ export class AdminDeviseComponent implements OnInit {
 
   onSupprimer(){
     this.message="";
+    if(this.deviseService==null) return;
      this.deviseService.deleteDevise(this.selectedDevise.code)
      .subscribe(
-      ()=>{this.message="suppression ok"},
-      (err)=>{this.message=err.message;}
+      ()=>{this.message="suppression ok"; 
+          this.ngOnInit(); //réactualiser contenu liste (avec une ligne de moins)
+          this.selectedDevise=null;},
+      (err)=>{this.message=err.message; }
     );
   }
 

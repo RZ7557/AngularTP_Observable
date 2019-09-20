@@ -21,6 +21,8 @@ export class LoginService {
            //prefixe http://localhost:8282 selon proxy.conf.json
            return this.http.post<LoginResponse>(url,requestObject,{headers: this._headers})
                       .pipe(
+                        /* tap (...) ne transforme rien mais
+                           ça déclenche un traitement supplémentaire*/
                          tap( 
                            (loginResponse : LoginResponse) => 
                               { sessionStorage.setItem('token',loginResponse.token); } 
