@@ -21,6 +21,7 @@ import { AdminDeviseComponent } from './admin-devise/admin-devise.component';
 import { MyAuthInterceptor } from './common/monIntercepteur';
 import { ProductsComponent } from './products/products.component';
 import { ListProdComponent } from './products/list-prod/list-prod.component';
+import { CalculTvaComponent } from './calcul-tva/calcul-tva.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ListProdComponent } from './products/list-prod/list-prod.component';
     ConversionComponent,
     AdminDeviseComponent,
     ProductsComponent,
-    ListProdComponent
+    ListProdComponent,
+    CalculTvaComponent
   ],
   imports: [
     BrowserModule,    AppRoutingModule,

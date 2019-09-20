@@ -1,6 +1,6 @@
 <ul>
    <li *ngFor="let c of categories"
-       (click)="onNavigate()">{{c}}</li>
+       (click)="onNavigate(c)">{{c}}</li>
 </ul>
 <router-outlet></router-outlet> <!-- sous niveau de 
     commposant variable (selon fin des urls) -->
